@@ -128,7 +128,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.gameObject.CompareTag("FLOOR"))
         {
-            transform.position = new Vector3(0, 3, 0);
+            
+            //transform.position = new Vector3(0, 3, 0);
             Debug.Log("투명바닥충돌. 플레이어 위치 이동시킴");
         }
     }
