@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private CameraController cameraController;
     private Movement3D movement3D;
+    private CharacterController characterController;
 
     public Ability ability = Ability.gravity;
 
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         movement3D = GetComponent<Movement3D>();
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class PlayerController : MonoBehaviour
         movement3D.MoveTo(new Vector3(x, 0, z));
 
         // 점프키를 눌러 y축 방향으로 점프
-        if (Input.GetKeyDown(jumpKeyCode))
+        if (Input.GetKeyDown(jumpKeyCode) && characterController.isGrounded)
         {
             movement3D.JumpTo(); 
         }
